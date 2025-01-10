@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    .calendar-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    .month {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .month-header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #007acc;
+    }
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      font-weight: bold;
+      text-align: center;
+      color: #555;
+      margin-bottom: 5px;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      color: #333;
+    }
+    .day {
+      padding: 5px;
+    }
+    .day.empty {
+      color: #ccc;
+    }
+    .day.weekend {
+      color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; margin: 20px 0;">2025 Calendar</h1>
+  <div class="calendar-container">
+    <!-- JavaScript will generate the months dynamically -->
+  </div>
+
+  <script>
+    // Days of the week
+    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = [
+      { name: "January", days: 31, startDay: 3 },
+      { name: "February", days: 28, startDay: 6 },
+      { name: "March", days: 31, startDay: 6 },
+      { name: "April", days: 30, startDay: 2 },
+      { name: "May", days: 31, startDay: 4 },
+      { name: "June", days: 30, startDay: 0 },
+      { name: "July", days: 31, startDay: 2 },
+      { name: "August", days: 31, startDay: 5 },
+      { name: "September", days: 30, startDay: 1 },
+      { name: "October", days: 31, startDay: 3 },
+      { name: "November", days: 30, startDay: 6 },
+      { name: "December", days: 31, startDay: 1 },
+    ];
+
+    const container = document.querySelector(".calendar-container");
+
+    months.forEach((month) => {
+      // Create month container
+      const monthDiv = document.createElement("div");
+      monthDiv.className = "month";
+
+      // Add month header
+      const header = document.createElement("div");
+      header.className = "month-header";
+      header.textContent = month.name;
+      monthDiv.appendChild(header);
+
+      // Add weekdays
+      const weekdaysDiv = document.createElement("div");
+      weekdaysDiv.className = "weekdays";
+      weekdays.forEach((day) => {
+        const dayDiv = document.createElement("div");
+        dayDiv.textContent = day;
+        weekdaysDiv.appendChild(dayDiv);
+      });
+      monthDiv.appendChild(weekdaysDiv);
+
+      // Add days
+      const daysDiv = document.createElement("div");
+      daysDiv.className = "days";
+
+      // Fill empty slots for start of the month
+      for (let i = 0; i < month.startDay; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.className = "day empty";
+        daysDiv.appendChild(emptyDiv);
+      }
+
+      // Fill in the days of the month
+      for (let day = 1; day <= month.days; day++) {
+        const dayDiv = document.createElement("div");
+        dayDiv.className = `day ${((day + month.startDay - 1) % 7 === 0 || (day + month.startDay - 1) % 7 === 6) ? 'weekend' : ''}`;
+        dayDiv.textContent = day;
+        daysDiv.appendChild(dayDiv);
+      }
+
+      monthDiv.appendChild(daysDiv);
+      container.appendChild(monthDiv);
+    });
+  </script>
+</body>
+</html>
