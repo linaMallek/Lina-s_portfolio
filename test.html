@@ -115,7 +115,7 @@
         daysDiv.appendChild(emptyDiv);
       }
 
-      // Fill in the days of the month
+      // Fill in the days of the month for the push only 
       for (let day = 1; day <= month.days; day++) {
         const dayDiv = document.createElement("div");
         dayDiv.className = `day ${((day + month.startDay - 1) % 7 === 0 || (day + month.startDay - 1) % 7 === 6) ? 'weekend' : ''}`;
