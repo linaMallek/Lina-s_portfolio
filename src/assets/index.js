@@ -26,6 +26,8 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import tire from "./company/tire.png";
+import ETIC from "./company/ETIC.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -54,9 +56,11 @@ export {
   typescript,
   threejs,
   meta,
+  ETIC,
   tydal,
   shopify,
   starbucks,
+  tire,
   tesla,
   carrent,
   jobit,
