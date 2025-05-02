@@ -1,59 +1,106 @@
-import React, { useState } from 'react';
-import { chatbotData } from '../constants/chatbotData'; // Adjust the import path as necessary
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { chatbotData } from '../constants/chatbotData';
+import { fadeIn } from '../utils/motion';
+import parse from 'html-react-parser';
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([
-        { sender: "bot", text: "Bonjour ! Je suis votre assistant virtuel. Posez-moi une question, et je ferai de mon mieux pour vous aider !" }
+        { sender: "bot", text: "Hello! I'm Lina's career assistant. How can I help you today? 😊" }
     ]);
     const [input, setInput] = useState("");
+    const messagesEndRef = useRef(null);
+    const messagesContainerRef = useRef(null);
 
-    const handleSend = () => {
-        if (!input.trim()) return; // Prevent sending empty messages
+    const scrollToBottom = () => {
+        if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+        }
+    };
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
+    const handleSend = (e) => {
+        e.preventDefault();
+        if (!input.trim()) return;
+        
         const userMessage = { sender: "user", text: input };
         const response = getBotResponse(input);
         const botMessage = { sender: "bot", text: response };
-        setMessages([...messages, userMessage, botMessage]);
+        
+        setMessages(prev => [...prev, userMessage, botMessage]);
         setInput("");
+        
+        // Force reflow pour le scroll
+        requestAnimationFrame(() => {
+            scrollToBottom();
+        });
     };
 
     const getBotResponse = (input) => {
         const normalized = input.toLowerCase();
-        for (let entry of chatbotData) {
-            if (entry.keywords.some(keyword => normalized.includes(keyword))) {
-                return entry.answer;
-            }
-        }
-        return "Désolé, je n'ai pas compris. Essaie une autre question.";
+        const entry = chatbotData.find(entry => 
+            entry.keywords.some(keyword => normalized.includes(keyword))
+        );
+        return entry ? entry.answer : "I'm sorry, I didn't understand that. Could you rephrase your question?";
     };
 
     return (
-        <div className="chatbot-container max-w-lg mx-auto p-4 shadow-lg rounded-lg bg-gray-50">
-            <div className="chatbot-messages h-64 overflow-y-auto border border-gray-300 p-3 mb-3 rounded-lg bg-white">
-                {messages.map((msg, index) => (
-                    <div
-                        key={index}
-                        className={`mb-2 text-${msg.sender === "user" ? "right" : "left"}`}
-                    >
-                        <span
-                            className={`inline-block px-4 py-2 rounded-lg ${
-                                msg.sender === "user"
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-200 text-gray-800"
-                            }`}
+        <motion.div
+            variants={fadeIn("left", "spring", 0.5, 0.75)}
+            className="w-full max-w-3xl mx-auto mt-12 green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+        >
+            <div className="bg-tertiary rounded-[20px] p-5 h-[550px] flex flex-col">
+                <div 
+                    ref={messagesContainerRef}
+                    className="chatbot-messages h-[450px] overflow-y-auto mb-4 pr-2"
+                >
+                    {messages.map((msg, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className={`mb-3 flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                         >
-                            {msg.text}
-                        </span>
-                    </div>
-                ))}
+                            <div
+                                className={`max-w-[85%] p-3 rounded-2xl text-[15px] ${
+                                    msg.sender === "user"
+                                        ? "bg-gradient-to-br from-blue-500 to-cyan-400"
+                                        : "bg-gradient-to-br from-purple-600 to-indigo-500"
+                                }`}
+                            >
+                                <div className={msg.sender === "user" ? "text-white" : "text-gray-100"}>
+                                    {parse(msg.text.replace(
+                                        /\[(.*?)\]\((.*?)\)/g,
+                                        '<a href="$2" target="_blank" rel="noopener" class="underline hover:opacity-80 transition-opacity" style="color: inherit;">$1</a>'
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                    <div ref={messagesEndRef} />
+                </div>
+
+                <form onSubmit={handleSend} className="relative mt-auto">
+                    <input
+                        className="w-full bg-[#151030] text-gray-100 rounded-xl py-3 px-4 pr-12 border-none text-[15px] focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder="Ask me anything!"
+                    />
+                    <button
+                        type="submit"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                    </button>
+                </form>
             </div>
-            <input
-                className="chatbot-input w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Pose-moi une question !"
-            />
-        </div>
+        </motion.div>
     );
 };
 
