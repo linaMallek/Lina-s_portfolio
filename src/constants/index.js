@@ -9,11 +9,14 @@ import {
     css,
     reactjs,
     redux,
+    tensorflow,
     tailwind,
     nodejs,
     mongodb,
     git,
+    python,
     figma,
+    pytorch,
     docker,
     tire,
     ETIC,
@@ -52,6 +55,7 @@ import {
       title: "React Native Developer",
       icon: mobile,
     },
+    
     {
       title: "Backend Developer",
       icon: backend,
@@ -63,6 +67,18 @@ import {
   ];
   
   const technologies = [
+    {
+      name: "python",
+      icon: python,
+    },
+    {
+      name: "pytorch",
+      icon: pytorch,
+    },
+    {
+      name: "tensorflow",
+      icon: tensorflow,
+    },
     {
       name: "HTML 5",
       icon: html,
@@ -83,10 +99,7 @@ import {
       name: "React JS",
       icon: reactjs,
     },
-    {
-      name: "Redux Toolkit",
-      icon: redux,
-    },
+   
     {
       name: "Tailwind CSS",
       icon: tailwind,
@@ -95,10 +108,7 @@ import {
       name: "Node JS",
       icon: nodejs,
     },
-    {
-      name: "MongoDB",
-      icon: mongodb,
-    },
+   
     {
       name: "Three JS",
       icon: threejs,
@@ -188,20 +198,20 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "LiverExpert",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Using CNNs with TensorFlow, liver, vein, and tumor segmentation is performed on CT scans, then reconstructed in 3D with VTK and integrated into Unity and Flutter for real-time AR visualization and surgical planning.",
       tags: [
         {
-          name: "react",
+          name: "tensorflow",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "VTK",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "UNITY",
           color: "pink-text-gradient",
         },
       ],
@@ -209,26 +219,27 @@ import {
       source_code_link: "https://github.com/",
     },
     {
-      name: "Job IT",
+      name: "BaborPneus",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Developed a website for product access and tire reservations, with a Bootstrap front-end, Laravel back-end, and a database for product management.",
       tags: [
         {
-          name: "react",
+          name: "bootstrap",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "sql",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "laravel",
           color: "pink-text-gradient",
         },
       ],
       image: jobit,
       source_code_link: "https://github.com/",
     },
+    
     {
       name: "Trip Guide",
       description:

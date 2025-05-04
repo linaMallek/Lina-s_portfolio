@@ -21,7 +21,7 @@ export const chatbotData = [
   },
   {
     question: "Projects",
-    keywords: ["projects", "portfolio"],
+    keywords: ["projects", "portfolio","work"],
     answer: "Featured work:\n1. [Surgical AR System](https://lina-dev.com/ar-surgery)\n2. [Vegetable Classifier](https://github.com/lina-mallek/veg-ai)\n3. [E-commerce Platform](https://baborpneus.dz)"
   },
   {
