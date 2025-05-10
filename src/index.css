@@ -34,11 +34,11 @@
 }
 
 .blue-gradient {
-  background: bg-#002e9b; /* fallback for old browsers */
-  background: linear-gradient(-90deg, #002e9b 0%, rgba(60, 51, 80, 0) 100%);
+  background: bg-#4C4CFF; /* fallback for old browsers */
+  background: linear-gradient(-90deg, #4C4CFF 0%, rgba(60, 51, 80, 0) 100%);
   background: -webkit-linear-gradient(
     -90deg,
-    #002e9b 0%,
+    #4C4CFF 0%,
     rgba(60, 51, 80, 0) 100%
   );
 }
