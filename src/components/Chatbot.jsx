@@ -6,7 +6,7 @@ import parse from 'html-react-parser';
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([
-        { sender: "bot", text: "Hello! I'm Lina's career assistant. How can I help you today? 😊" }
+        { sender: "bot", text: "Hey there! I’m Lina’s career sidekick — here to tell you she’s a young AI developer with a big passion for 3D and an even bigger hunger for new adventures. Curious to learn more about her journey?  😊" }
     ]);
     const [input, setInput] = useState("");
     const messagesEndRef = useRef(null);

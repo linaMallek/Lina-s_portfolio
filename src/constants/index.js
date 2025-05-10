@@ -21,8 +21,8 @@ import {
     tire,
     ETIC,
     tydal,
-    carrent,
-    jobit,
+    liverExpert,
+    BaborPneus,
     tripguide,
     threejs,
   } from "../assets";
@@ -198,6 +198,27 @@ import {
   
   const projects = [
     {
+      name: "Offensive Text classification",
+      description:
+        "Developed a multilingual offensive language detection system using BERT and DistilBERT models, trained on a custom dataset of 100k+ tweets, achieving 95% accuracy.",
+      tags: [
+        {
+          name: "python",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Huggingface",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "Bert",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: tripguide,
+      source_code_link: "https://github.com/",
+    },
+    {
       name: "LiverExpert",
       description:
         "Using CNNs with TensorFlow, liver, vein, and tumor segmentation is performed on CT scans, then reconstructed in 3D with VTK and integrated into Unity and Flutter for real-time AR visualization and surgical planning.",
@@ -215,7 +236,7 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
+      image: liverExpert,
       source_code_link: "https://github.com/",
     },
     {
@@ -236,31 +257,11 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
+      image: BaborPneus,
       source_code_link: "https://github.com/",
-    },
+    }
     
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
-    },
+
   ];
   
   export { services, technologies, experiences, testimonials, projects };

@@ -33,8 +33,8 @@ import tesla from "./company/tesla.png";
 import tire from "./company/tire.png";
 import ETIC from "./company/ETIC.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
+import liverExpert from "./projects/liverExpert.png";
+import BaborPneus from "./projects/BaborPneu.png";
 import tripguide from "./tripguide.png";
 
 export {
@@ -69,7 +69,7 @@ export {
   starbucks,
   tire,
   tesla,
-  carrent,
-  jobit,
+  liverExpert,
+  BaborPneus,
   tripguide,
 };
