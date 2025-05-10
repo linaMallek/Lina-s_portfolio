@@ -23,6 +23,7 @@ import threejs from "./tech/threejs.svg";
 import python from "./tech/python.png";
 import pytorch from "./tech/pytorch.png";
 import tensorflow from "./tech/tensorflow.png";
+import flask from "./tech/flask.png";
 
 
 import tydal from "./company/tydal.png";
@@ -58,6 +59,7 @@ export {
   nodejs,
   reactjs,
   pytorch,
+  flask,
   redux,
   tailwind,
   typescript,

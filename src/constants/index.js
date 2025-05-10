@@ -14,6 +14,7 @@ import {
     nodejs,
     mongodb,
     git,
+    flask,
     python,
     figma,
     pytorch,
@@ -80,6 +81,10 @@ import {
       icon: tensorflow,
     },
     {
+      name: "flask",
+      icon: flask,
+    },
+    {
       name: "HTML 5",
       icon: html,
     },
@@ -91,10 +96,7 @@ import {
       name: "JavaScript",
       icon: javascript,
     },
-    {
-      name: "TypeScript",
-      icon: typescript,
-    },
+   
     {
       name: "React JS",
       icon: reactjs,
