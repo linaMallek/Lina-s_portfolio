@@ -1,8 +1,21 @@
-# React + Vite
+# 🌐 Lina's Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website, available at:  
+👉 [https://lina-s-portfolio.onrender.com](https://lina-s-portfolio.onrender.com)
 
-Currently, two official plugins are available:
+This site showcases my journey as an AI developer with a passion for 3D, highlighting projects, skills, and experiences across real-world applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## ✨ Features
+
+- 💼 Project Gallery with live demos and GitHub links  
+- 🧠 Skills and tools I've mastered  
+- 📫 Contact form for professional inquiries  
+- 📱 Fully responsive design  
+- 🎨 Clean, modern, and creative UI
+
+---
+
+
+- **Hosting**: [Render](https://render.com)
