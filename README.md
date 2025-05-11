@@ -15,7 +15,3 @@ This site showcases my journey as an AI developer with a passion for 3D, highlig
 - 📱 Fully responsive design  
 - 🎨 Clean, modern, and creative UI
 
----
-
-
-- **Hosting**: [Render](https://render.com)
